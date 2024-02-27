@@ -1,5 +1,51 @@
 from datetime import date
 
+class pantallas():
+    tituloPrincipal = r"""   █████████                                          ████                   
+  ███░░░░░███                                        ░░███                   
+ ███     ░░░  ████████   ██████   ████████    ██████  ░███   ██████   ██████ 
+░███         ░░███░░███ ░░░░░███ ░░███░░███  ███░░███ ░███  ███░░███ ███░░███
+░███    █████ ░███ ░░░   ███████  ░███ ░███ ░███████  ░███ ░███ ░░░ ░███ ░███
+░░███  ░░███  ░███      ███░░███  ░███ ░███ ░███░░░   ░███ ░███  ███░███ ░███
+ ░░█████████  █████    ░░████████ ████ █████░░██████  █████░░██████ ░░██████ 
+  ░░░░░░░░░  ░░░░░      ░░░░░░░░ ░░░░ ░░░░░  ░░░░░░  ░░░░░  ░░░░░░   ░░░░░░  
+"""
+
+    width = 50  # ancho de las cajas
+
+    def print_granelco(self):
+        print(pantallas.tituloPrincipal, end='')
+
+    def print_yoTeConozco(self):
+        print(pantallas.tituloSecundario, end='')
+
+    def print_line(self):
+        for i in range(self.width):
+            print("═", end='')
+
+    def print_upperBox(self):
+        print("╔═", end='')
+        self.print_line()
+        print("═╗")
+
+    def print_separator(self):
+        print("╠═", end='')
+        self.print_line()
+        print("═╣")
+
+    def print_lowerBox(self):
+        print("╚═", end='')
+        self.print_line()
+        print("═╝")
+
+
+class pantallaInicio(pantallas):
+    mensajePrincipal = "Esto es una prueba"
+
+    def print_mensaje(self):
+        self.print_upperBox()
+        print(self.mensajePrincipal)
+        self.print_lowerBox()
 
 class Sistema:
     ARG_10 = 10
@@ -15,7 +61,7 @@ class Sistema:
     USD_10 = 10
     USD_20 = 10
     USD_50 = 10
-    USD_100 = 0
+    USD_100 = 10
 
     def __init__(self, ARG_10, ARG_20, ARG_50, ARG_100, ARG_200, ARG_500, ARG_1000, USD_1, USD_2, USD_5, USD_10, USD_20, USD_50,
                  USD_100):
@@ -288,10 +334,10 @@ class empresa:
              str(self.usuario.movimientos.m3), str(self.usuario.movimientos.m4), str(self.usuario.movimientos.m5))
         f.writelines(g)
         if c != 5:
-            d = open(str(int(self.tarjeta.numero)), 'w+')
+            d = open("./Granelco/Data/" + str(int(self.tarjeta.numero)), 'w+')
             d.writelines(g)
         else:
-            d = open(str(int(self.CUIT)), 'w+')
+            d = open("./Granelco/Data/" + str(int(self.CUIT)), 'w+')
             d.writelines(g)
 
 
@@ -407,10 +453,10 @@ class persona:
              str(self.usuario.movimientos.m5))
         f.writelines(g)
         if c != 5:
-            d = open(str(int(self.tarjeta.numero)), 'w+')
+            d = open("./Granelco/Data/" + str(int(self.tarjeta.numero)), 'w+')
             d.writelines(g)
         else:
-            d = open(str(int(self.DNI)), 'w+')
+            d = open("./Granelco/Data/" + str(int(self.DNI)), 'w+')
             d.writelines(g)
 
 
@@ -437,46 +483,58 @@ def menu():
             else:
                 print(s)
                 print("\nOpercacion no valida")
+            input("\nPresione enter para continuar")
         elif s == 2:
             o.movimientos()
+            input("\nPresione enter para continuar")
         elif s == 3:
             s = int(input("\nQuiere quiere realizar un deposito en:\n1-ARG\n2-USD\n\n"))
             if s == 1:
                 o.deposito_ARG()
+                print("Done")
             elif s == 2:
                 o.deposito_USD()
+                print("Done")
             else:
                 print("\nOpercacion no valida")
+            input("\nPresione enter para continuar")
         elif s == 4:
             s = int(input("\nQuiere quiere realizar una extraccion en:\n1-ARG\n2-USD\n\n"))
             if s == 1:
                 o.extraccion_ARG()
+                print("Done")
             elif s == 2:
                 o.extraccion_USD()
+                print("Done")
             else:
                 print("\nOpercacion no valida")
+            input("\nPresione enter para continuar")
         elif s == 5:
             o.cambio_de_pin()
+            print("Done")
+            input("\nPresione enter para continuar")
         elif s == 6:
             o.datos()
+            input("\nPresione enter para continuar")
         elif s == 7:
             print("\nHasta la proxima", o.nombre)
             o.guardar()
             break
         else:
             print("\nOperacion no valida")
+            input("\nPresione enter para continuar")
 
 
 def admin():
-    while 1:
+    while True:
         s = int(input("\nQue operacion desea realizar?\n1-crear un usuario\n2-desbloquear usuarios\n3-ingresar billetes\n"
                       "4-realizar operaciones como un usuario normal\n5-salir\n\n"))
         if s == 1:
             if input("\nIngrese j si se trata de una persona juridica, sino continue ") == "j":
                 x = input("\nIngrese el CUIT: ")
                 t = input("Ingrese el numero de tarjeta: ")
-                n = open(x, "w+")
-                N = open(t, "w+")
+                n = open("./Granelco/Data/" + x, "w+")
+                N = open("./Granelco/Data/" + t, "w+")
                 p = ("j", "\n", input("Nombre de la empresa: "), "\n", x, "\n", input("Fecha de Inicio: "), "\n",
                      input("Rubro: "), "\n", t, "\n", input("Fecha de Vencimiento de la tarjeta: "), "\n",
                      input("Codigo de seguridad: "), "\n", "activo", "\n", input("Pin: "), "\n",
@@ -489,8 +547,8 @@ def admin():
             else:
                 x = input("\ningrese el DNI: ")
                 t = input("ingrese el numero de tarjeta: ")
-                n = open(x, "w+")
-                N = open(t, "w+")
+                n = open("./Granelco/Data/" + x, "w+")
+                N = open("./Granelco/Data/" + t, "w+")
                 p = ("p", "\n", input("Nombre: "), "\n", x, "\n", input("Fecha de Nacimiento: "), "\n", input("Profesion: "), "\n",
                      input("Genero: "), "\n", t, "\n", input("Fecha de Vencimiento de la tarjeta: "), "\n",
                      input("Codigo de seguridad: "), "\n", "activo", "\n", input("Pin: "), "\n", input("Saldo en ARG: "), "\n",
@@ -499,43 +557,47 @@ def admin():
                 N.writelines(p)
                 n.close()
                 N.close()
+            input("\n\nDatos creados\nPresione enter para continuar")
         elif s == 2:
             log = input("\nIngrese un numero CUIT/DNI o tarjeta: ")
             try:
-                f = open(log, 'r+')
+                f = open("./Granelco/Data/" + log, 'r+')
                 x = [x for x in f]
                 if x[0] == "j\n":
                     if x[8] == "activo\n":
-                        print("\nEl usuario no esta bloqueado")
+                        input("\n\nEl usuario no esta bloqueado")
                     else:
                         x[8] = "activo\n"
                         f.seek(0)
                         for z in x:
                             f.write(z)
                         f.close()
-                        print("\nUsuario desbloqueado")
+                        input("\nUsuario desbloqueado\nPresione enter para continuar")
                 else:
                     if x[9] == "activo\n":
-                        print("\nEl usuario no esta bloqueado")
+                        input("\nEl usuario no esta bloqueado\nPresione enter para continuar")
                     else:
                         x[9] = "activo\n"
                         f.seek(0)
                         for z in x:
                             f.write(z)
                         f.close()
-                        print("\nUsuario desbloqueado")
+                        input("\nUsuario desbloqueado\nPresione enter para continuar")
             except:
-                print("\nNumero invalido")
+                input("\nNumero invalido\nPresione enter para continuar")
         elif s == 3:
             S = int(input("\nIngresar:\n1=billetes argentinos\n2-billetes estadounidenses\n\n"))
             if S == 1:
                 m = int(input("\nEscriba monto a ingresar: "))
                 sistema.ingreso_ARG(m)
+                print("Done")
             elif S == 2:
                 m = int(input("\nEscriba monto a ingresar: "))
                 sistema.ingreso_USD(m)
+                print("Done")
             else:
                 print("\nOperacion no valida")
+            input("\nPresione enter para continuar")
         elif s == 4:
             menu()
         elif s == 5:
@@ -556,10 +618,12 @@ def persona_juridica():
 
 
 def hola():
-    input("\nBienvenido\n\nPulse cualquier tecla para continuar")
+    pantallaInicio().print_granelco()
+    pantallaInicio().print_mensaje()
+    input("\nBienvenido\n\nPulse enter para continuar")
 
 
-s = open("Sistema", 'r+')
+s = open("./Granelco/Sistema", 'r+')
 system = [int(system) for system in s]
 sistema = Sistema(system[0], system[1], system[2], system[3], system[4], system[5], system[6], system[7], system[8], system[9],
                   system[10], system[11], system[12], system[13])
@@ -568,7 +632,7 @@ while 1:
     hola()
     log = input("\nIngrese su numero de CUIT/DNI o tarjeta: ")
     try:
-        f = open(log, 'r+')
+        f = open("./Granelco/Data/" + log, 'r+')
         x = [x for x in f]
         if x[0] == "j\n":
             c = 0

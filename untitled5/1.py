@@ -7,8 +7,6 @@ class numero_complejo():
     def __init__(self, R, j):
         self.R = R
         self.j = j
-        self.m = #calculo de modulo
-        self.p = #calculo de fase
 
     def suma(self, x):
         pass

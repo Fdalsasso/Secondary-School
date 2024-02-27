@@ -1,0 +1,18 @@
+p = persona                                 (p = human)
+Nombre                                      (name)
+DNI                                         (ID)
+Fecha de nacimiento                         (birth date)
+Profesion                                   (profession)
+Genero                                      (gender)
+numero de tarjeta                           (card number)
+Fecha de Vencimiento                        (due date)
+Codigo de seguridad                         (security code)
+estado de cuenta (activo/bloqueado)         (account status (active/blocked))
+Pin
+Saldo en ARG                                (Balance in ARG)
+Saldo en USD                                (Balance in USD)
+mov 1
+mov 2
+mov 3
+mov 4
+mov 5

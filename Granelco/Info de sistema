@@ -1,15 +1,18 @@
-billetes de 10 ARS
-billetes de 20 ARS
-billetes de 50 ARS
-billetes de 100 ARS
-billetes de 200 ARS
-billetes de 500 ARS
-billetes de 1000 ARS
-billetes de 1 USD
-billetes de 2 USD
-billetes de 5 USD
-billetes de 10 USD
-billetes de 20 USD
-billetes de 50 USD
-billetes de 100 USD
+billetes de 10 ARS          (10 ARS bills)
+billetes de 20 ARS          (20 ARS bills)
+billetes de 50 ARS          (50 ARS bills)
+billetes de 100 ARS         (100 ARS bills)
+billetes de 200 ARS         (200 ARS bills)
+billetes de 500 ARS         (500 ARS bills)
+billetes de 1000 ARS        (1000 ARS bills)
+billetes de 1 USD           (1 USD bills)
+billetes de 2 USD           (2 USD bills)
+billetes de 5 USD           (5 USD bills)
+billetes de 10 USD          (10 USD bills)
+billetes de 20 USD          (20 USD bills)
+billetes de 50 USD          (50 USD bills)
+billetes de 100 USD         (100 USD bills)
+
 Cada dia (cada vez que se inicia el programa) se suman 10 billetes de cada tipo
+
+Every day (every time the program starts) 10 bills of each type are added

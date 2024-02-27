@@ -1,0 +1,17 @@
+j = persona juridica                    (j = legal person)
+Nombre de la empresa                    (Company name)
+CUIL
+Fecha de Inicio                         (Start date)
+Rubro                                   (Category)
+numero de tarjeta                       (card number)
+Fecha de Vencimiento                    (Due date)
+Codigo de seguridad                     (Security code)
+estado de cuenta (activo/bloqueado)     (account status (active/blocked))
+Pin
+Saldo en ARG                            (Balance in ARG)
+Saldo en USD                            (Balance in UDS)
+mov 1
+mov 2
+mov 3
+mov 4
+mov 5
